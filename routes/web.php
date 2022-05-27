@@ -108,7 +108,7 @@ Route::get('/mp_report', [displayInfo::class,'show_mp_report']);
 //SMS Routes
 Route::get('/mp_sms', [SMSController::class,'index']);
 Route::post('/sms/send', [SMSController::class,'send_sms'])->name('sms.send');
-
+ //test
 
 
 
