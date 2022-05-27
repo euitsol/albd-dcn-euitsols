@@ -22,7 +22,7 @@
     {{-- {{asset('css/bootstrap.min.css')}} --}}
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/up.css')}}" rel="stylesheet">
-   
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -64,7 +64,7 @@
                             <!-- Logo icon -->
                             <b class="logo-icon">
 
-                                
+
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Dark Logo icon -->
                                 {{-- <img src="{{asset('assets/images/logo1.png')}}" alt="homepage" class="dark-logo" /> --}}
@@ -88,7 +88,7 @@
                     <!-- ============================================================== -->
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
-                    
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -103,9 +103,9 @@
                         <!-- ============================================================== -->
                         <li class="nav-item search-box">
                             <a class="nav-link waves-effect waves-dark" href="{{url("/dashboard")}}">
-                                
+
                                         <span class="company_name">ঢাকা মহানগর উত্তর আওয়ামী লীগ</span>
-                                    
+
                             </a>
                             <form class="app-search position-absolute">
                                 <input type="text" class="form-control" placeholder="Search &amp; enter">
@@ -187,7 +187,7 @@
                                 <i class="bi bi-info-circle"></i>
                                 <span class="hide-menu">ইউনিট তালিকা</span>
                             </a>
-                        </li>   
+                        </li>
                         {{-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/add_parlament_info')}}"
                                 aria-expanded="false">
@@ -260,7 +260,17 @@
                             </a>
                         </li>
 
-                       
+
+                        {{-- SMS section --}}
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('mp_sms') }}"
+                                aria-expanded="false">
+                                <i class="bi bi-arrow-return-right"></i>
+                                <span class="hide-menu">এম.পি দের বার্তা পাঠান</span>
+                            </a>
+                        </li>
+
+
 
                     </ul>
                 </nav>
@@ -279,7 +289,7 @@
     <!-- ============================================================== -->
     <!-- End Wrapper -->
     </div>
-    
+
     <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- All Jquery -->
@@ -308,12 +318,12 @@
     <script>
         $(document).ready(function(){
             $('#datatable').dataTable();
-            // $('#TableId').DataTable( "dom": '<"pull-left"f><"pull-right"l>tip' ); 
+            // $('#TableId').DataTable( "dom": '<"pull-left"f><"pull-right"l>tip' );
         });
 
 $(document).ready(function () {
 
-          
+
 });
 
   </script>

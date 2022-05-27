@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class mpDetail extends Model
 {
     use HasFactory;
+
+
+    public function parlament_seat()
+    {
+        return $this->belongsTo(parlament_seat::class,'p_id','id');
+    }
+
 }
