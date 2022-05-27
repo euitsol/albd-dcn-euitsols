@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class unitRP extends Model
 {
     use HasFactory;
+    protected $table = 'unit_r_p_s';
+    public $timestamp = false;
+
+
 }
