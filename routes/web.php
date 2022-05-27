@@ -12,6 +12,7 @@ use App\Http\Controllers\word_rp_controler;
 use App\Http\Controllers\unit_rp_controler;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\displayInfo;
+use App\Http\Controllers\SMSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,9 +107,8 @@ Route::get('/mp_report', [displayInfo::class,'show_mp_report']);
 
 
 //SMS Routes
-Route::get('/mp_sms', [SMSController::class,'index']);
+Route::get('/mp_sms', [SMSController::class,'index'])->name('mp_sms');
 Route::post('/sms/send', [SMSController::class,'send_sms'])->name('sms.send');
- //test
 
 
 
