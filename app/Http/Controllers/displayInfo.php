@@ -34,11 +34,11 @@ class displayInfo extends Controller
 
     public function show_thana_report(request $request)
     {
-        
+
         $request->p_id;
         $request->ps_id;
         $data_p = parlament_seat::all();
-        
+
         if($request->ps_id!='*'){
 
             $data_unit = DB::table('police_station_responsible_parsons')
@@ -63,12 +63,12 @@ class displayInfo extends Controller
             ->orderBy('police_station_responsible_parsons.p_id')
             ->get();
             // dd($data_unit);
-            
+
 
             return view('/display_Thana_rp_info',compact('data_unit',"data_p","data_unit2"));
-           
+
         }else{
-           
+
 
             $data_unit = DB::table('police_station_responsible_parsons')
             ->join('parlament_seat','police_station_responsible_parsons.p_id','=','parlament_seat.id')
@@ -91,7 +91,7 @@ class displayInfo extends Controller
             ->get();
 
             // dd($data_unit);
-           
+
             return view('/display_Thana_rp_info',compact('data_unit',"data_p","data_unit2"));
         }
    }
@@ -114,11 +114,11 @@ class displayInfo extends Controller
 
     public function show_word_report(request $request)
     {
-        
+
         $request->p_id;
         $request->ps_id;
         $request->w_id;
-       
+
         $data_p = parlament_seat::all();
 
         if($request->w_id!='*'){
@@ -151,13 +151,13 @@ class displayInfo extends Controller
             ->where('designation.d_name','=',"সাধারণ সম্পাদক")
             ->orderBy('unit_r_p_s.u_id')
             ->get();
-            
+
             // dd($data_unit_president);
 ;
             return view('/display_unit_rp_info',compact('data_unit',"data_p","data_unit2"));
-           
+
         }else{
-           
+
 
             $data_unit = DB::table('unit_r_p_s')
             ->join('parlament_seat','unit_r_p_s.p_id','=','parlament_seat.id')
@@ -186,9 +186,9 @@ class displayInfo extends Controller
             ->where('designation.d_name','=',"সাধারণ সম্পাদক")
             ->orderBy('unit_r_p_s.u_id')
             ->get();
-            
+
             // dd($data_unit);
-           
+
             return view('/display_unit_rp_info',compact('data_unit',"data_p","data_unit2"));
         }
    }
@@ -226,7 +226,7 @@ class displayInfo extends Controller
         // ->where('designation.d_name','=',"সাধারণ সম্পাদক")
         // ->orderBy('unit_r_p_s.u_id')
         // ->get();
-    
+
     // dd($array6[0],$array3,$array12,$array9);
 
         return view('/display_unit_rp_info',compact('data_p'));
@@ -235,7 +235,7 @@ class displayInfo extends Controller
 
     public function show_unit_report(request $request)
     {
-        
+
         $request->p_id;
         $request->ps_id;
         $request->w_id;
@@ -243,42 +243,49 @@ class displayInfo extends Controller
         $data_p = parlament_seat::all();
         if($request->union_name!='*'){
 
-            $data_unit = DB::table('unit_r_p_s')
-            ->join('parlament_seat','unit_r_p_s.p_id','=','parlament_seat.id')
-            ->join('police_stations','unit_r_p_s.ps_id','=','police_stations.id')
-            ->join('designation','unit_r_p_s.d_id','=','designation.id')
-            ->join('words','unit_r_p_s.w_id','=','words.id')
-            ->join('units','unit_r_p_s.u_id','=','units.id')
-            ->select('unit_r_p_s.*','police_stations.*','designation.*','units.*')
-            ->where('unit_r_p_s.p_id','=',"$request->p_id")
-            ->where('unit_r_p_s.ps_id','=',"$request->ps_id")
-            ->where('unit_r_p_s.w_id','=',"$request->w_id")
-            ->where('unit_r_p_s.u_id','=',"$request->union_name")
-            ->where('designation.d_name','=',"সভাপতি")
-            ->orderBy('unit_r_p_s.u_id')
-            ->get();
+            $query  = DB::table('unit_r_p_s');
+            $query->join('parlament_seat','unit_r_p_s.p_id','=','parlament_seat.id');
+            $query->join('police_stations','unit_r_p_s.ps_id','=','police_stations.id');
+            $query->join('designation','unit_r_p_s.d_id','=','designation.id');
+            $query->join('words','unit_r_p_s.w_id','=','words.id');
+            $query->join('units','unit_r_p_s.u_id','=','units.id');
+            $query->select('unit_r_p_s.*','police_stations.*','designation.*','units.*');
+            $query->where('unit_r_p_s.p_id', "$request->p_id");
+            $query->where('unit_r_p_s.ps_id', "$request->ps_id");
+            $query->where('designation.d_name', "সভাপতি");
 
-            $data_unit2 = DB::table('unit_r_p_s')
-            ->join('parlament_seat','unit_r_p_s.p_id','=','parlament_seat.id')
-            ->join('police_stations','unit_r_p_s.ps_id','=','police_stations.id')
-            ->join('designation','unit_r_p_s.d_id','=','designation.id')
-            ->join('words','unit_r_p_s.w_id','=','words.id')
-            ->join('units','unit_r_p_s.u_id','=','units.id')
-            ->select('unit_r_p_s.*','police_stations.*','designation.*','units.*')
-            ->where('unit_r_p_s.p_id','=',"$request->p_id")
-            ->where('unit_r_p_s.ps_id','=',"$request->ps_id")
-            ->where('unit_r_p_s.w_id','=',"$request->w_id")
-            ->where('unit_r_p_s.u_id','=',"$request->union_name")
-            ->where('designation.d_name','=',"সাধারণ সম্পাদক")
-            ->orderBy('unit_r_p_s.u_id')
-            ->get();
-            
-            // dd($data_unit_president);
-;
+            if($request->w_id != 'all'){
+                $query->where('unit_r_p_s.w_id','=',"$request->w_id");
+                $query->where('unit_r_p_s.u_id', "$request->union_name");
+            }
+
+
+            $query->orderBy('unit_r_p_s.u_id');
+            $data_unit = $query->get();
+
+            $query2 = DB::table('unit_r_p_s');
+            $query2->join('parlament_seat','unit_r_p_s.p_id','=','parlament_seat.id');
+            $query2->join('police_stations','unit_r_p_s.ps_id','=','police_stations.id');
+            $query2->join('designation','unit_r_p_s.d_id','=','designation.id');
+            $query2->join('words','unit_r_p_s.w_id','=','words.id');
+            $query2->join('units','unit_r_p_s.u_id','=','units.id');
+            $query2->select('unit_r_p_s.*','police_stations.*','designation.*','units.*');
+            $query2->where('unit_r_p_s.p_id','=',"$request->p_id");
+            $query2->where('unit_r_p_s.ps_id','=',"$request->ps_id");
+            $query2->where('designation.d_name','=',"সাধারণ সম্পাদক");
+
+            if($request->w_id != 'all'){
+                $query2->where('unit_r_p_s.w_id','=',"$request->w_id");
+                $query2->where('unit_r_p_s.u_id', "$request->union_name");
+            }
+
+            $query2->orderBy('unit_r_p_s.u_id');
+            $data_unit2 = $query2->get();
+
             return view('/display_unit_rp_info',compact('data_unit',"data_p","data_unit2"));
-           
+
         }else{
-           
+
 
             $data_unit = DB::table('unit_r_p_s')
             ->join('parlament_seat','unit_r_p_s.p_id','=','parlament_seat.id')
@@ -309,7 +316,7 @@ class displayInfo extends Controller
             ->get();
 
             // dd($data_unit);
-           
+
             return view('/display_unit_rp_info',compact('data_unit',"data_p","data_unit2"));
         }
    }
@@ -333,12 +340,12 @@ return view('/display_mp',compact('data_mp','data_p'));
         $data_mp = DB::table('mp_details')
                     ->join('parlament_seat','mp_details.p_id','=','parlament_seat.id')
                     ->select('mp_details.*')
-                    ->where('mp_details.p_id','=',"$request->p_id") 
+                    ->where('mp_details.p_id','=',"$request->p_id")
                     ->get();
 
         return view('/display_mp',compact('data_mp','data_p'));
-   
+
     }
-    
+
 
 }
