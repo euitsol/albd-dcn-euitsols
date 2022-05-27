@@ -107,9 +107,13 @@ Route::get('/mp_report', [displayInfo::class,'show_mp_report']);
 
 
 //SMS Routes
-Route::get('/mp_sms', [SMSController::class,'index'])->name('mp_sms');
+Route::get('/mp_sms', [SMSController::class,'mp'])->name('mp_sms');
 Route::post('/sms/send', [SMSController::class,'send_sms'])->name('sms.send');
 Route::get('/unit_sms', [SMSController::class,'unit'])->name('unit_sms');
+Route::get('/word_sms', [SMSController::class,'word'])->name('word_sms');
+Route::get('/thana_sms', [SMSController::class,'thana'])->name('thana_sms');
+Route::get('/birthday_sms', [SMSController::class,'birthday'])->name('birthday_sms');
+Route::get('/individual_sms', [SMSController::class,'individual'])->name('individual_sms');
 
 
 

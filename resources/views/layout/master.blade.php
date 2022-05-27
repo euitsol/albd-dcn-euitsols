@@ -270,10 +270,38 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('thana_sms') }}"
+                                aria-expanded="false">
+                                <i class="bi bi-arrow-return-right"></i>
+                                <span class="hide-menu">থানার দায়িত্বভার ব্যক্তিরদের<br> বার্তা পাঠান</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('word_sms') }}"
+                                aria-expanded="false">
+                                <i class="bi bi-arrow-return-right"></i>
+                                <span class="hide-menu">ওয়ার্ডের দায়িত্বভার ব্যক্তিরদের<br> বার্তা পাঠান</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('unit_sms') }}"
                                 aria-expanded="false">
                                 <i class="bi bi-arrow-return-right"></i>
                                 <span class="hide-menu">ইউনিটের দায়িত্বভার ব্যক্তিদের <br> বার্তা পাঠান</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('birthday_sms') }}"
+                                aria-expanded="false">
+                                <i class="bi bi-arrow-return-right"></i>
+                                <span class="hide-menu"> জন্মদিনের শুভেচ্ছা পাঠান  </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('individual_sms') }}"
+                                aria-expanded="false">
+                                <i class="bi bi-arrow-return-right"></i>
+                                <span class="hide-menu"> স্বতন্ত্র বার্তা পাঠান </span>
                             </a>
                         </li>
 

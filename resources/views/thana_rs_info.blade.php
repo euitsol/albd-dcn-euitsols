@@ -15,22 +15,22 @@
                 @if(session()->get('message')=='0')
                     <div class="alert alert-danger">
                         <p>আপনার দেওয়া তথ্য বিদ্যমান আছে</p>
-        
+
                     </div>
                 @elseif(session()->get('message')=='4')
                     <div class="alert alert-success">
                         <p>সফলভাবে ডিলেট হয়েছে</p>
-        
+
                     </div>
                 @elseif(session()->get('message')=='1')
                     <div class="alert alert-success">
                         <p>সফলভাবে যোগ করা হয়েছে</p>
-        
+
                     </div>
                 @elseif(session()->get('message')=='5')
                     <div class="alert alert-success">
                         <p>সফলভাবে আপডেট হয়েছে</p>
-        
+
                     </div>
                 @endif
             @endif
@@ -55,7 +55,7 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-    
+
             <div id="project" class="tabcontent">
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
@@ -82,7 +82,7 @@
                                     <div class="col-sm-12" style="width: 75%;">
                                         <select id="ps_id" name="ps_id" class="form-select shadow-none form-control-line">
                                             <option>সিলেক্ট থানা</option>
-                                            
+
                                         </select>
                                     </div>
                                 </div>
@@ -122,14 +122,14 @@
                                         <input name='rp_email' type="email" placeholder="ই-মেইল" class="form-control form-control-line">
                                     </div>
                                 </div>
-        
+
                                 <div class="form-group d-flex">
                                     <label class="col-sm-12" style="width: 25%;">জন্ম তারিখ</label>
                                     <div class="col-sm-12" style="width: 75%;">
                                         <input name='rp_dob' type="date" lang="bn"  class="form-control form-control-line">
                                     </div>
                                 </div>
-        
+
                                 <div class="form-group d-flex">
                                     <label class="col-sm-12" style="width: 25%;">ছবি</label>
                                     <div class="col-sm-12" style="width: 75%;">
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-           
+
                 <div class="row">
                     <!-- column -->
                     <div class="col-12  m-auto">
@@ -169,12 +169,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
+
                                     @foreach($data_join as $data)
-                                    
+
                                         <tr class="tr_n_td">
                                         <!--  -->
-                                            
+
                                             <td>{{$loop->index+1}}
                                             </td>
                                             <td>{{$data->name.'-'.$data->no}}</td>
@@ -186,7 +186,7 @@
                                             <td>{{$data->rp_email}}</td>
                                             <td>{{$data->rp_dob}}</td>
                                             <td class="td_n_img"><img src="{{asset("storage/image/$data->rp_img")}}" alt=""></td>
-                                            
+
                                             <td class="td_css">
                                             <a  href='/update_page_thana_rs/{{$data->id}}' name="btn_edit" class="btn btn-info" style='line-height: 0.5;padding: .5rem'><i class="bi bi-pen"></i></a>
                                             <form class="spacing" method="POST" action='/delete/policeStationResponsibleParson/{{$data->id}}'>
@@ -195,7 +195,7 @@
                                                 <button id='custom-btn' class="btn btn-danger" onclick="return confirm('Are you sure??')"> <i class="bi bi-trash"></i> </button>
                                              </form>
                                         </td>
-                                        
+
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -229,7 +229,7 @@
 
 <script>
     function data_fetch()
-            { 
+            {
                 var p_id =  $('#p_id').val();
                 $.ajax({
                     type: "GET",
@@ -241,12 +241,12 @@
                         $.each(respose,function(key,value){
 
                             data = data + '<option value="'+value.id+'">'+value.PS_name+'</option>';
-                            
+
                         });
                         $('#ps_id').html(data);
                     }
                 });
-                    
+
             }
         </script>
 @endsection
