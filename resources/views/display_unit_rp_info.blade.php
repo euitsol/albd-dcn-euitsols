@@ -50,7 +50,7 @@
                                 <label class="col-sm-12" style="width: 25%;">আসন </label>
                                 <div class="col-sm-12" style="width: 75%;">
                                     <select id="p_id" name="p_id" class="form-select shadow-none form-control-line" onchange="data_fetch()">
-                                        <option value="">সিলেক্ট আসন</option>
+                                        <option value="">আসন</option>
                                         @foreach($data_p as $value)
                                     <option value="{{$value->id}}">{{$value->name.'-'.$value->no}}</option>
                                     @endforeach
