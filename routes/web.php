@@ -34,7 +34,7 @@ Route::get('/logout',[adminController::class,'logout']);
 
 
 
-    
+
 Route::get('/dasboard', [adminController::class,'index']);
 
 Route::get('/add_parlament_info', [parlamentController::class,'show']);
@@ -104,5 +104,11 @@ Route::get('/unit_report', [displayInfo::class,'show_unit_report']);
 Route::get('/display_mp', [displayInfo::class,'mp']);
 Route::get('/mp_report', [displayInfo::class,'show_mp_report']);
 
-   
- 
+
+//SMS Routes
+Route::get('/mp_sms', [SMSController::class,'index']);
+Route::post('/sms/send', [SMSController::class,'send_sms'])->name('sms.send');
+
+
+
+
