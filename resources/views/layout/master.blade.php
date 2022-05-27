@@ -269,6 +269,13 @@
                                 <span class="hide-menu">এম.পি দের বার্তা পাঠান</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('unit_sms') }}"
+                                aria-expanded="false">
+                                <i class="bi bi-arrow-return-right"></i>
+                                <span class="hide-menu">ইউনিটের দায়িত্বভার ব্যক্তিদের <br> বার্তা পাঠান</span>
+                            </a>
+                        </li>
 
 
 
