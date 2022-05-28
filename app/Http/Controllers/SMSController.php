@@ -104,6 +104,10 @@ class SMSController extends Controller
             $data[$key]['birthdate'] = $ud->rp_dob;
         }
 
+        if(!isset($data)){
+            $data = [];
+        }
+
         return view('sms.birthday_sms', compact('data'));
     }
 
@@ -140,6 +144,10 @@ class SMSController extends Controller
 
         // dd ($data);
         return view('sms.individual_sms', compact('data'));
+    }
+
+    public function test(){
+        return view('test');
     }
 
 }

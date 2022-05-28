@@ -144,7 +144,7 @@
                                     <td >{{$md->mp_email}}</td>
                                     <td>
                                         <label class="check_box_container">
-                                            <input type="checkbox" name="number[]" value="01773301138" checked="checked">
+                                            <input type="checkbox" name="number[]" value="{{$md->mp_phone}}" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
                                     </td>

@@ -150,7 +150,7 @@
                                     <td >{{$ud->rp_phone}}</td>
                                     <td>
                                         <label class="check_box_container">
-                                            <input type="checkbox" name="number[]" value="" checked="checked">
+                                            <input type="checkbox" name="number[]" value="{{$ud->rp_phone}}" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
                                     </td>
